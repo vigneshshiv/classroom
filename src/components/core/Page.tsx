@@ -2,18 +2,8 @@
  * Page for an application
  * - Holds Navbar, Header, Footer, Sidebar & Container (Actual content)
  */
-import NavBar from 'components/layout/navbar/NavBar';
+import Navbar from 'components/layout/navbar/Navbar';
 import * as React from 'react';
-
-/**
- * Theme for application
- */
-declare global {
-  interface Window {
-    __theme: string;
-    __setPreferredTheme: (theme: string) => void;
-  }
-}
 
 interface PageProps {
   children: React.ReactNode;
@@ -24,7 +14,7 @@ const Page = ({children}: PageProps) => {
   return (
     <>
      {/* Navbar and Menu */}
-     <NavBar />
+     <Navbar />
 
      {/* Header should hold tilte and Heading etc */}
      <h2>Header Section Heading</h2>
