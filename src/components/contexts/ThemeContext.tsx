@@ -1,6 +1,7 @@
 /**
  * Application Theme Contexts
  */
+import { useState } from 'react';
 
 /**
  * Theme for application
@@ -14,6 +15,7 @@ declare global {
 
 const ThemeContext = () => {
   // TODO:
+  const [_theme, setTheme] = useState('');
 }
 
 export default ThemeContext;
