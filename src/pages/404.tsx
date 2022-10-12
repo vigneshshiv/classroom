@@ -9,8 +9,8 @@ import { H1 } from '../components/mdx/Heading';
 const NotFound: NextPage = () => {
     return (
       <>
-        <Container className='lg:pt-40 text-center'>
-          <h1 className='font-medium xl:text-6xl'>
+        <Container className='pt-40 text-center'>
+          <h1 className='font-medium text-6xl'>
             <span className='relative whitespace-nowrap text-blue-600'>
               404{' '}
             </span>

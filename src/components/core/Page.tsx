@@ -17,10 +17,10 @@ const Page = ({children}: PageProps) => {
      <Navbar />
 
      {/* Header should hold tilte and Heading etc */}
-     <h2>Header Section Heading</h2>
+     {/* <h2>Header Section Heading</h2> */}
 
      {/* Sidebar */}
-     <h3>Side bar heading</h3>
+     {/* <h3>Side bar heading</h3> */}
 
      {/* Main document section */}
      <main>
@@ -30,7 +30,7 @@ const Page = ({children}: PageProps) => {
      </main>
      {/* Footer */}
 
-     <h1>Footer Heading</h1>
+     {/* <h1>Footer Heading</h1> */}
 
     </>
   ); 

@@ -42,7 +42,7 @@ const _Document = () => {
           content='https://raw.githubusercontent.com/github/explore/28b02bbc9ad9f7a503c43775aebeb515dc2da5fc/topics/nextjs/nextjs.png'
         /> 
       </Head>
-      <body className='flex h-full flex-col bg-gray-100'>
+      <body>
         {/* Theme change */}
         <Main />
         <NextScript />

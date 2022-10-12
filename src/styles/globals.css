@@ -4,13 +4,8 @@
 
 html, 
 body {
-  height: 100%;
-  width: 100%;
   margin: 0;
   padding: 0;
-}
-
-#__next {
-  margin: 0;
-  padding: 0;
+  background: #F6F6F6;
+  font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
 }

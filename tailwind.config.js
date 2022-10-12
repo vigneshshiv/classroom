@@ -1,7 +1,6 @@
 /**
  * Tailwind config for CSS
  */
-const defaultTheme = require('tailwindcss/defaultTheme');
 const colors = require('./colors');
 
 /** 
@@ -15,26 +14,6 @@ module.exports = {
   ],
   theme: {
     extend: {   
-      maxWidth: {
-        xs: '21rem',
-      },
-      outline: {
-        blue: ['1px auto ' + colors.link, '3px'],
-      },
-      opacity: {
-        8: '0.08',
-      },
-      fontFamily: {
-        sans: [
-          'Optimistic Display',
-          '-apple-system',
-          ...defaultTheme.fontFamily.sans,
-        ]
-      },
-      lineHeight: {
-        base: '30px',
-        large: '38px',
-      },
       fontSize: {
         '6xl': '68px',
         '5xl': '40px',

@@ -2,9 +2,6 @@
  * Application Colors 
  */
 module.exports = {
-  // Navbar
-  navbar: '#131921',
-  'navbar-lite': '#232F3E',
   // Text colors
   primary: '#23272F', // gray-90
   'primary-dark': '#F6F7F9', // gray-5
@@ -24,9 +21,15 @@ module.exports = {
   'secondary-button': '#EBECF0', // gray-10
   'secondary-button-dark': '#404756', // gray-70
 
+  // White
+  'white-90': '#FDFDFD',
+  'white-50': '#F8F5F5',
+  'white-30': '#F5F1F1',
+
   // Gray
   'gray-95': '#16181D',
-  'gray-90': '#23272F',
+  'gray-90': '#232F3E', // Header
+  'gray-85': '#23272F',
   'gray-80': '#343A46',
   'gray-70': '#404756',
   'gray-60': '#4E5769',
