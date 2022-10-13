@@ -2,35 +2,36 @@
  * NavBar
  */
 import Image from 'next/image';
-import { PlayCircleIcon } from '@heroicons/react/24/outline';
+import { PlayCircleIcon, UserCircleIcon} from '@heroicons/react/24/outline';
 // Application
 import { H3, H4 } from 'components/mdx/Heading';
 
 const Navbar = () => {
   return (
-    <header>
-      <div className='flex items-center p-6 py-2 bg-wash shadow-lg'>
+    <header className='sticky top-0 z-50 bg-wash'>
+      <div className='flex items-center p-6 py-2 shadow-md'>
         <div className='flex items-center flex-grow'>
           <Image
             src='/images/e-learning-logo.png'
             alt='logo'
-            width={100}
+            width={80}
             height={40}
             objectFit='contain'
             className='cursor-pointer'
           />
-          <H3>Online Classroom</H3>
+          <h3 className='text-2xl leading-9 text-primary md:px-5 whitespace-nowrap'>Online Classroom</h3>
         </div>
         {/* Right Side */}
-        <div className='flex items-center hidden md:flex absolute right-[100px] gap-x-[50px] whitespace-nowrap'>
-          <div className='flex items-center pl-3 cursor-pointer hover:bg-wask-dark rounded-lg hover:shadow-lg transform hover:scale-125'>
+        <div className='flex items-center md:flex whitespace-nowrap space-x-10 justify-end mr-10'>
+          <div className='items-center space-x-2 border-2 px-4 rounded-full cursor-pointer hidden md:flex'>
             <H4>Demo</H4>
-            <PlayCircleIcon className='h-6 pl-2 pr-2 opacity-50' />
+            <PlayCircleIcon className='h-6 text-gray-50' /> 
           </div>
-          <div className='pl-2 pr-2 cursor-pointer hover:bg-wask-dark rounded-lg hover:shadow-lg transform hover:scale-125'>
+          <div className='flex items-center space-x-2 border-2 px-4 rounded-full cursor-pointer'>
             <H4>Sign-in</H4>
+            <UserCircleIcon className='h-6 text-gray-50' />
           </div>
-          <button className='bg-blue-500 shadow-lg hover:shadow-blue-500/50 pt-[6px] pl-[12px] pr-[12px] pb-[6px] rounded-lg text-white font-bold text-lg'>
+          <button className='h-10 bg-blue-500 text-wash text-lg font-medium px-6 rounded-lg cursor-pointer hover:bg-blue-600 active:bg-blue-600'>
             Register
           </button>
         </div>
