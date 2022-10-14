@@ -2,7 +2,9 @@
  * NavBar
  */
 import Image from 'next/image';
-import { PlayCircleIcon, UserCircleIcon} from '@heroicons/react/24/outline';
+import Link from 'next/link';
+import { PlayCircleIcon } from 'components/icons/PlayCircleIcon';
+import { UserCircleIcon } from 'components/icons/UserCircleIcon';
 // Application
 import { H3, H4 } from 'components/mdx/Heading';
 
@@ -23,14 +25,16 @@ const Navbar = () => {
         </div>
         {/* Right Side */}
         <div className='flex items-center md:flex whitespace-nowrap space-x-10 justify-end mr-10'>
-          <div className='items-center space-x-2 border-2 px-4 rounded-full cursor-pointer hidden md:flex'>
+          <div className='items-center space-x-2 border-2 px-4 rounded-full cursor-pointer hidden md:flex shadow hover:shadow-md'>
             <H4>Demo</H4>
-            <PlayCircleIcon className='h-6 text-gray-50' /> 
+            <PlayCircleIcon size='lg' /> 
           </div>
-          <div className='flex items-center space-x-2 border-2 px-4 rounded-full cursor-pointer'>
-            <H4>Sign-in</H4>
-            <UserCircleIcon className='h-6 text-gray-50' />
-          </div>
+          <Link href='/signin'>
+            <div className='flex items-center space-x-2 border-2 px-4 rounded-full cursor-pointer shadow hover:shadow-md'>
+              <H4>Sign-in</H4>
+              <UserCircleIcon size='lg' />
+            </div>
+          </Link>
           <button className='h-10 bg-blue-500 text-wash text-lg font-medium px-6 rounded-lg cursor-pointer hover:bg-blue-600 active:bg-blue-600'>
             Register
           </button>
