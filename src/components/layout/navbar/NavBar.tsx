@@ -1,14 +1,22 @@
 /**
  * NavBar
  */
+import { useContext, useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { PlayCircleIcon } from 'components/icons/PlayCircleIcon';
 import { UserCircleIcon } from 'components/icons/UserCircleIcon';
 // Application
 import { H3, H4 } from 'components/mdx/Heading';
+import { PageProps, User } from 'components/types/types';
+import { SessionContext } from 'components/contexts/SessionContext';
 
-const Navbar = () => {
+const Navbar = ({pageProps}: {pageProps: PageProps}) => {
+  const [user, setUser] = useState<User | null>(null);
+  const session: User | null = useContext(SessionContext) as any;
+  // setUser(session);
+  console.log(`Navbar user data - ${JSON.stringify(session)}`);
+
   return (
     <header className='sticky top-0 z-50 bg-wash'>
       <div className='flex items-center p-6 py-2 shadow-md'>
@@ -35,7 +43,8 @@ const Navbar = () => {
               <UserCircleIcon size='lg' />
             </div>
           </Link>
-          <button className='h-10 bg-blue-500 text-wash text-lg font-medium px-6 rounded-lg cursor-pointer hover:bg-blue-600 active:bg-blue-600'>
+          <button 
+            className='h-10 bg-blue-500 text-wash text-lg font-medium px-6 rounded-lg cursor-pointer hover:bg-blue-600 active:bg-blue-600'>
             Register
           </button>
         </div>

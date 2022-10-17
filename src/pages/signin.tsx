@@ -5,6 +5,12 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useState } from 'react';
 import { HiEye, HiEyeOff } from 'react-icons/hi';
+// Application
+import { User } from 'components/types/types';
+import { initCache, removeCache } from 'shared/shared.data'; 
+
+const VALID_EMAIL = 'admin@abc.com';
+const SIGNIN_KEY = 'session_data';
 
 const SignIn = () => {
   // Email and Password
@@ -12,9 +18,20 @@ const SignIn = () => {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
-
   const handleSignIn = () => {
-    alert('User signed in');
+    // Remove the key
+    removeCache(SIGNIN_KEY);
+    console.log(`Handle signin, email - ${email}, password - ${password}`);
+    if (Object.is(VALID_EMAIL, email)) {
+      console.log(`Signin successful`);
+      let user: User = {
+        username: email, 
+        email: email,
+        loggedIn: true
+      };
+      initCache(SIGNIN_KEY, user);
+      console.log(`Session Initialized`);
+    }
   }
 
   return (
@@ -77,27 +94,6 @@ const SignIn = () => {
                   </button>
                 </div>
               </div>
-              {/* TODO: Remember Me and Forgot Password functionality */}
-              {/*
-              <div>
-                <input 
-                  id='remember-me'
-                  name='remeber-me'
-                  type='checkbox'
-                  className='h-4 w-4'
-                />
-                <label htmlFor='remember-me'>
-                  {' '}
-                  Remember me {' '}
-                </label>
-              </div>
-              <div>
-                <a href='#'>
-                  {' '}
-                  Forgot your password?{' '}
-                </a>
-              </div>
-              */}
               <button
                 type='submit'
                 className='group relative my-4 flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'

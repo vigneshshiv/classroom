@@ -2,19 +2,17 @@
  * Page for an application
  * - Holds Navbar, Header, Footer, Sidebar & Container (Actual content)
  */
+import { ReactNode } from 'react';
+// Application
+import { PageProps } from 'components/types/types';
 import Navbar from 'components/layout/navbar/Navbar';
-import * as React from 'react';
 
-interface PageProps {
-  children: React.ReactNode;
-}
-
-const Page = ({children}: PageProps) => {
+const Page = ({children, pageProps}: {children: ReactNode; pageProps: PageProps}) => {
   // Holds an Router Component
   return (
     <>
      {/* Navbar and Menu */}
-     <Navbar />
+     <Navbar pageProps={pageProps} />
 
      {/* Header should hold tilte and Heading etc */}
      {/* <h2>Header Section Heading</h2> */}
