@@ -7,12 +7,14 @@ import { useState } from 'react';
 import { HiEye, HiEyeOff } from 'react-icons/hi';
 // Application
 import { User } from 'components/types/types';
+import { StorageManager } from 'shared/base.data';
 import { initCache, removeCache } from 'shared/shared.data'; 
+import { useRouter } from 'next/router';
 
 const VALID_EMAIL = 'admin@abc.com';
-const SIGNIN_KEY = 'session_data';
 
 const SignIn = () => {
+  const router = useRouter();
   // Email and Password
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -20,17 +22,15 @@ const SignIn = () => {
 
   const handleSignIn = () => {
     // Remove the key
-    removeCache(SIGNIN_KEY);
-    console.log(`Handle signin, email - ${email}, password - ${password}`);
+    removeCache(StorageManager.SESSION_KEY);
     if (Object.is(VALID_EMAIL, email)) {
-      console.log(`Signin successful`);
       let user: User = {
         username: email, 
         email: email,
         loggedIn: true
       };
-      initCache(SIGNIN_KEY, user);
-      console.log(`Session Initialized`);
+      initCache(StorageManager.SESSION_KEY, user);
+      router.push('/');
     }
   }
 

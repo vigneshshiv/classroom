@@ -68,3 +68,10 @@ export const ProxyRef = {
   FORM_REF: '_form_ref_',
   HANDLER_REF: '_handler_ref_'
 };
+
+/**
+ * Application Constants
+ */
+export const StorageManager = {
+  SESSION_KEY: 'cr-session'
+};

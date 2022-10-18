@@ -1,22 +1,21 @@
 /**
  * NavBar
  */
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { PlayCircleIcon } from 'components/icons/PlayCircleIcon';
 import { UserCircleIcon } from 'components/icons/UserCircleIcon';
+import { CgProfile } from 'react-icons/cg'
+import { IoMdNotificationsOutline } from 'react-icons/io';
 // Application
 import { H3, H4 } from 'components/mdx/Heading';
 import { PageProps, User } from 'components/types/types';
 import { SessionContext } from 'components/contexts/SessionContext';
 
 const Navbar = ({pageProps}: {pageProps: PageProps}) => {
-  const [user, setUser] = useState<User | null>(null);
-  const session: User | null = useContext(SessionContext) as any;
-  // setUser(session);
-  console.log(`Navbar user data - ${JSON.stringify(session)}`);
-
+  const user: User | null = useContext(SessionContext) as any;
+  
   return (
     <header className='sticky top-0 z-50 bg-wash'>
       <div className='flex items-center p-6 py-2 shadow-md'>
@@ -37,16 +36,25 @@ const Navbar = ({pageProps}: {pageProps: PageProps}) => {
             <H4>Demo</H4>
             <PlayCircleIcon size='lg' /> 
           </div>
-          <Link href='/signin'>
-            <div className='flex items-center space-x-2 border-2 px-4 rounded-full cursor-pointer shadow hover:shadow-md'>
-              <H4>Sign-in</H4>
-              <UserCircleIcon size='lg' />
+          {user?.loggedIn ? (
+            <div className='flex items-center space-x-10'>
+              <IoMdNotificationsOutline className='h-6 w-6 cursor-pointer transform hover:scale-125' title='notification' />
+              <CgProfile className='h-6 w-6 cursor-pointer text-gray-70 hover:text-blue-400' title='user profile' />
             </div>
-          </Link>
-          <button 
-            className='h-10 bg-blue-500 text-wash text-lg font-medium px-6 rounded-lg cursor-pointer hover:bg-blue-600 active:bg-blue-600'>
-            Register
-          </button>
+            ) : (
+            <>
+              <Link href='/signin'>
+                <div className='flex items-center space-x-2 border-2 px-4 rounded-full cursor-pointer shadow hover:shadow-md'>
+                  <H4>Sign-in</H4>
+                  <UserCircleIcon size='lg' />
+                </div>
+              </Link>
+              <button 
+                className='h-10 bg-blue-500 text-wash text-lg font-medium px-6 rounded-lg cursor-pointer hover:bg-blue-600 active:bg-blue-600'>
+                Register
+              </button>
+            </>
+            )}
         </div>
       </div>
     </header>
