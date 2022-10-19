@@ -1,26 +1,21 @@
 // React
 import type { AppProps } from 'next/app';
-import { useEffect, useState } from 'react';
+// Next Auth
+import { SessionProvider } from 'next-auth/react';
+import { type Session } from 'next-auth';
 // Application
-import { PageProps, User } from 'components/types/types';
-import { getCache } from 'shared/shared.data';
-import { SessionContext } from 'components/contexts/SessionContext';
-import { StorageManager } from 'shared/base.data';
+import { PageProps } from 'components/types/types';
 // CSS
 import '../styles/globals.css';
 
-function Classroom({ Component, pageProps }: AppProps<PageProps>) {
-  const [user, setUser] = useState<User | null>(null);
-  useEffect(() => {
-    // Component mounted
-    const session: User | null = getCache(StorageManager.SESSION_KEY);
-    setUser(session);
-    return () => {};
-  }, []);
+function Classroom({ 
+  Component, 
+  pageProps: {session, ...pageProps} 
+}: AppProps<{session: Session, pageProps: PageProps}>) {
   return (
-    <SessionContext.Provider value={user as any}>
+    <SessionProvider session={session}>
       <Component {...pageProps} />
-    </SessionContext.Provider>
+    </SessionProvider>
   );
 }
 

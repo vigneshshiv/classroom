@@ -1,20 +1,19 @@
 /**
  * NavBar
  */
-import { useContext } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { PlayCircleIcon } from 'components/icons/PlayCircleIcon';
 import { UserCircleIcon } from 'components/icons/UserCircleIcon';
 import { CgProfile } from 'react-icons/cg'
 import { IoMdNotificationsOutline } from 'react-icons/io';
+// Next Auth
+import { signIn, signOut, useSession } from 'next-auth/react';
 // Application
-import { H3, H4 } from 'components/mdx/Heading';
-import { PageProps, User } from 'components/types/types';
-import { SessionContext } from 'components/contexts/SessionContext';
+import { H4 } from 'components/mdx/Heading';
 
-const Navbar = ({pageProps}: {pageProps: PageProps}) => {
-  const user: User | null = useContext(SessionContext) as any;
+const Navbar = () => {
+  const { data: session } = useSession();
   
   return (
     <header className='sticky top-0 z-50 bg-wash'>
@@ -36,10 +35,16 @@ const Navbar = ({pageProps}: {pageProps: PageProps}) => {
             <H4>Demo</H4>
             <PlayCircleIcon size='lg' /> 
           </div>
-          {user?.loggedIn ? (
+          {session ? (
             <div className='flex items-center space-x-10'>
-              <IoMdNotificationsOutline className='h-6 w-6 cursor-pointer transform hover:scale-125' title='notification' />
-              <CgProfile className='h-6 w-6 cursor-pointer text-gray-70 hover:text-blue-400' title='user profile' />
+              <IoMdNotificationsOutline 
+                className='h-6 w-6 cursor-pointer transform hover:scale-125' 
+                title='notification' 
+              />
+              <CgProfile 
+                className='h-6 w-6 cursor-pointer text-gray-70 hover:text-blue-400' 
+                title='user profile' 
+              />
             </div>
             ) : (
             <>

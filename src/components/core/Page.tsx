@@ -4,15 +4,14 @@
  */
 import { ReactNode } from 'react';
 // Application
-import { PageProps } from 'components/types/types';
 import Navbar from 'components/layout/navbar/Navbar';
 
-const Page = ({children, pageProps}: {children: ReactNode; pageProps: PageProps}) => {
+const Page = ({ children }: { children: ReactNode }) => {
   // Holds an Router Component
   return (
     <>
      {/* Navbar and Menu */}
-     <Navbar pageProps={pageProps} />
+     <Navbar />
 
      {/* Header should hold tilte and Heading etc */}
      {/* <h2>Header Section Heading</h2> */}

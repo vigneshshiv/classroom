@@ -3,35 +3,31 @@
  */
 import Head from 'next/head';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { HiEye, HiEyeOff } from 'react-icons/hi';
+// Next Auth
+import { useSession } from 'next-auth/react';
 // Application
-import { User } from 'components/types/types';
-import { StorageManager } from 'shared/base.data';
-import { initCache, removeCache } from 'shared/shared.data'; 
 import { useRouter } from 'next/router';
 
-const VALID_EMAIL = 'admin@abc.com';
-
 const SignIn = () => {
+  const { data: session } = useSession();
   const router = useRouter();
   // Email and Password
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleSignIn = () => {
-    // Remove the key
-    removeCache(StorageManager.SESSION_KEY);
-    if (Object.is(VALID_EMAIL, email)) {
-      let user: User = {
-        username: email, 
-        email: email,
-        loggedIn: true
-      };
-      initCache(StorageManager.SESSION_KEY, user);
+  // If the user is already loggedIn , redirect to home page
+  useEffect(() => {
+    if (session) {
       router.push('/');
     }
+  });
+  
+  // Handle Signin
+  const handleSignIn = () => {
+    
   }
 
   return (

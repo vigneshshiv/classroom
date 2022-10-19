@@ -1,9 +1,13 @@
 /**
  * Prisma
  */
+import { PrismaClient } from '@prisma/client';
 
-const Prisma = () => {
-  // TODO:
+declare global {
+  var prisma: PrismaClient | undefined;
 }
 
-export default Prisma;
+const prisma = (global.prisma = globalThis.prisma || new PrismaClient());
+if (!Object.is(process.env.NODE_ENV, 'production')) globalThis.prisma = prisma;
+
+export default prisma;

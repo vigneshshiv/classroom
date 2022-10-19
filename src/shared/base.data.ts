@@ -70,8 +70,16 @@ export const ProxyRef = {
 };
 
 /**
- * Application Constants
+ * Storage Manager
  */
 export const StorageManager = {
   SESSION_KEY: 'cr-session'
 };
+
+/**
+ * Application Roles
+ */
+export enum Roles {
+  Teacher = 'teacher',
+  Student = 'student'
+}
