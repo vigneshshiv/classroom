@@ -10,7 +10,7 @@ const loadConfiguration = async () => {
     create: {
       id: 'al814zcy80074hloomogrg1mv',
       name: 'Nick',
-      // role: Roles.Teacher,
+      role: Roles.Teacher,
       email: 'nick@classroom.com'
     },
     update: {},
@@ -21,7 +21,7 @@ const loadConfiguration = async () => {
     create: {
       id: 'bl814zcy80074hloomogrg1mv',
       name: 'James',
-      // role: Roles.Student,
+      role: Roles.Student,
       email: 'james@classroom.com'
     },
     update: {},

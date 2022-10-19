@@ -1,8 +1,10 @@
 // Prisma Schema
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider = "postgres"
+  // TODO: env is not picking up, url is manually injected
+  // url      = env("DATABASE_URL")
+  url      = "postgresql://admin:admin@localhost:5432/db"
 }
 
 generator client {
