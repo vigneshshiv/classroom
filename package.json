@@ -13,9 +13,9 @@
     "prettier": "yarn format:source",
     "check-all": "npm-run-all prettier lint:fix",
     "docker-compose": "docker-compose up",
-    "prisma-studio": "npx prisma studio",
+    "postinstall": "npx prisma generate",
+    "prisma-studio": "dotenv -e .env.local npx prisma studio",
     "prisma-sync": "npx prisma db push",
-    "prisma-generate": "npx prisma generate",
     "prisma-migrate": "dotenv -e .env.local npx prisma migrate dev"
   },
   "prisma": {

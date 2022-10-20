@@ -8,12 +8,16 @@ import { UserCircleIcon } from 'components/icons/UserCircleIcon';
 import { CgProfile } from 'react-icons/cg'
 import { IoMdNotificationsOutline } from 'react-icons/io';
 // Next Auth
-import { signIn, signOut, useSession } from 'next-auth/react';
+import { signOut, useSession } from 'next-auth/react';
 // Application
 import { H4 } from 'components/mdx/Heading';
 
 const Navbar = () => {
   const { data: session } = useSession();
+
+  const handleSignOut = () => {
+    signOut();
+  }
   
   return (
     <header className='sticky top-0 z-50 bg-wash'>
@@ -44,6 +48,8 @@ const Navbar = () => {
               <CgProfile 
                 className='h-6 w-6 cursor-pointer text-gray-70 hover:text-blue-400' 
                 title='user profile' 
+                href='#'
+                onClick={handleSignOut}
               />
             </div>
             ) : (

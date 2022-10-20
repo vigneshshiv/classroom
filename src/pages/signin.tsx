@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { HiEye, HiEyeOff } from 'react-icons/hi';
 // Next Auth
-import { useSession } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
 // Application
 import { useRouter } from 'next/router';
 
@@ -27,7 +27,7 @@ const SignIn = () => {
   
   // Handle Signin
   const handleSignIn = () => {
-    
+    signIn();
   }
 
   return (
