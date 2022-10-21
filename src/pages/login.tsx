@@ -1,24 +1,17 @@
 /**
- * Login
+ * Signin with User Id (email) or Google Authentication
  */
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
-// import useSWR from 'swr';
-import { GetServerSideProps, GetServerSidePropsContext, Redirect } from 'next';
+import { useState } from 'react';
+import { useRouter } from 'next/router';
 import { HiEye, HiEyeOff } from 'react-icons/hi';
 // Next Auth
-import { getCsrfToken, getProviders, getSession, signIn, signOut, useSession } from 'next-auth/react';
-// Application
-import { useRouter } from 'next/router';
+import { GetServerSideProps, GetServerSidePropsContext } from 'next';
+import { getCsrfToken, getProviders, getSession, signIn, useSession } from 'next-auth/react';
 
-
-const Login = (props: {props: any}) => {
-  console.log(`props - ${JSON.stringify(props)}`);
-  // console.log(`any Redirect - ${redirect}`);
-  const [providers, setProviders] = useState<any>(null);
-  const [csrfToken, setCsrfToken] = useState<any>(null);
+const Login = (props: any) => {
   const { data: session, status } = useSession();
   const router = useRouter();
   // Email and Password
@@ -26,37 +19,21 @@ const Login = (props: {props: any}) => {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   
-  console.log(`Login Status - ${status}`);
-
   // If it's already authenticated, redirect to home
-  // if (Object.is(status, 'authenticated')) {
-  //   router.push('/');
-  // }
+  if (Object.is(status, 'authenticated')) {
+    router.push('/');
+  }
 
-  // useEffect(() => {
-  //   const loadConfig = async () => {
-  //     if (!Object.is(status, 'loading')) {
-  //       if (await providers === null) {
-  //         setProviders(await getProviders());
-  //         if (await csrfToken === null) {
-  //           setCsrfToken(await getCsrfToken());
-  //         }
-  //       }
-  //     }
-  //     console.log(`Login Outside if - ${JSON.stringify(providers)}`);
-  //   }
-  //   loadConfig();
-  //   return () => {}
-  // });
-
+  /**
+   * TODO: Prisma Role based access for Teacher & Student
+   */
   const handleSignIn = () => {
-    // TODO:
   }
 
   return (
     <>
       <Head>
-        <title>Classroom | Login</title>
+        <title>Classroom | Signin</title>
       </Head>
       <main className='flex items-center justify-center pt-[6rem]'>
         <div className='flex flex-1 flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24'>
@@ -134,7 +111,7 @@ const Login = (props: {props: any}) => {
               <div className='h-[0.7px] w-[30%] bg-gray-400' />
             </div>
             <button 
-              onClick={() => signIn(providers['google']?.id)}
+              onClick={() => signIn(props.providers['google']?.id)}
               className='flex justify-center items-center w-[60%] mt-2 mx-auto p-2 space-x-4 rounded-md border hover:bg-primary-dark focus:outline-none'
             >
               <Image
@@ -165,7 +142,6 @@ export default Login;
 export const getServerSideProps: GetServerSideProps = async (context: GetServerSidePropsContext) => {
   const { req } = context;
   const session = await getSession({ req });
-  console.log(`Login server side props, session - ${session}`);
   return session ? {
     redirect: { 
       destination: '/',
