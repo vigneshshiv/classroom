@@ -13,6 +13,10 @@ module.exports = {
     './src/styles/**/*.{js,ts,jsx,tsx}'
   ],
   theme: {
+    fontFamily: {
+      sans: ['Roboto', 'sans-serif'],
+      mono: ['Roboto', 'sans-serif'],
+    },
     extend: {   
       fontSize: {
         '6xl': '68px',
