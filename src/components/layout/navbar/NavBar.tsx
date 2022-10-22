@@ -15,6 +15,11 @@ import { H4 } from 'components/mdx/Heading';
 const Navbar = () => {
   const { data: session } = useSession();
 
+  if (session) {
+    console.log(`Navbar session user - ${session.user?.id}`);
+    console.log(`Navbar session user role - ${session.user?.role}`);
+   }
+
   const handleSignOut = () => {
     signOut();
   }

@@ -14,13 +14,13 @@ export const authOptions: NextAuthOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!
     })
   ],
-  // TODO: Change session attributes
   // Authentication adapter
   adapter: PrismaAdapter(prisma),
   callbacks: {
     session({ session, user }) {
       if (session.user) {
-        session.user.name = user.id;
+        session.user.id = user.id;
+        session.user.role = user.role;
       }
       return session;
     },
