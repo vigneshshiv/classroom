@@ -17,15 +17,30 @@ export const authOptions: NextAuthOptions = {
   // Authentication adapter
   adapter: PrismaAdapter(prisma),
   callbacks: {
-    session({ session, user }) {
+    async jwt({ token, user, account, profile, isNewUser }) {
+      // Persist the OAuth access_token and or the user id to the token right after signin
+      if (account) {
+        token.accessToken = account.access_token;
+        token.user = user;
+      }
+      return token;
+    }, 
+    async session({ session, user, token}) {
       if (session.user) {
         session.user.id = user.id;
         session.user.role = user.role;
       }
       return session;
     },
-    async redirect({ baseUrl }) {
-      return `${baseUrl}/`;
+    async redirect({ url, baseUrl }) {
+      // Allows relative callback URLs
+      if (url.startsWith('/')) {
+        return `${baseUrl}/`;
+      } else if (Object.is(new URL(url).origin, baseUrl)) {
+        // Allows callback URLs on the same origin
+        return url;
+      }
+      return baseUrl;
     }
   }
 };

@@ -18,11 +18,6 @@
    const [email, setEmail] = useState('');
    const [password, setPassword] = useState('');
    const [showPassword, setShowPassword] = useState(false);
-
-   if (session) {
-    console.log(`Signin session user - ${session.user?.id}`);
-    console.log(`Signin session user role - ${session.user?.role}`);
-   }
    
    // If it's already authenticated, redirect to home
    if (Object.is(status, 'authenticated')) {
