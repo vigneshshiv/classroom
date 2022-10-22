@@ -15,7 +15,8 @@
     "docker-compose": "docker-compose up",
     "postinstall": "npx prisma generate",
     "prisma-studio": "dotenv -e .env.local npx prisma studio",
-    "prisma-sync": "npx prisma db push",
+    "prisma-sync": "dotenv -e .env.local npx prisma db push",
+    "prisma-seed": "dotenv -e .env.local npx prisma db seed",
     "prisma-migrate": "dotenv -e .env.local npx prisma migrate dev"
   },
   "prisma": {
@@ -32,7 +33,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "7.37.0",
-    "react-icons": "4.4.0"
+    "react-icons": "4.4.0",
+    "ts-node": "10.9.1"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "5.16.5",

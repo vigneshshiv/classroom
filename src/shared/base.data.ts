@@ -80,6 +80,6 @@ export const StorageManager = {
  * Application Roles
  */
 export enum Roles {
-  Teacher = 'teacher',
-  Student = 'student'
+  TEACHER = 'TEACHER',
+  STUDENT = 'STUDENT'
 }
