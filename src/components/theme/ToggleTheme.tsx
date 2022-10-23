@@ -23,7 +23,6 @@ export const ToggleTheme = (): JSX.Element => {
           ? <DarkTheme size='lg' /> 
           : <LiteTheme size='lg' />
       )}
-
     </button>
   );
 }
