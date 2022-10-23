@@ -8,6 +8,7 @@ import { PageProps } from 'components/types/types';
 // CSS
 import '../styles/globals.css';
 
+// TODO: Layout Group & Animate Presence
 function Classroom({ 
   Component, 
   pageProps: {session, ...pageProps} 
