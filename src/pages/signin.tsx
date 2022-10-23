@@ -34,7 +34,6 @@ const SignIn = (props: any): JSX.Element => {
       password: password,
       redirect: false
     });
-    console.log(`SignIn result - ${JSON.stringify(result)}`);
     if (result && Object.is(result.error, null)) {
       router.push('/');
     }
@@ -141,6 +140,7 @@ export default SignIn;
 /**
 * Get Server Side props
 * Reason for Server Side Props is, useEffect async / await call multiple times when props get initialized
+* and redirect to home(/) page is better than handling in server side
 * 
 * @param context 
 * @returns 

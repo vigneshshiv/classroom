@@ -13,12 +13,9 @@ export default async function handler(
 ) {
   switch (req.method) {
     case 'POST': {
-      const user = await getUser(req, res);
       // Generate Access Token and Update in Session object
-      console.log(`secret - ${secret}`);
       const token = await getToken({ req, secret });
-      console.log(`JWT Token - ${JSON.stringify(token)}`);
-      // res.setHeader('Authorization', String(token));
+      return getUser(req, res);
     }
   }
 }
@@ -37,8 +34,6 @@ const getUser = async (req: NextApiRequest, res: NextApiResponse) => {
       }
     })
     .then((data: any) => {
-      console.log(`query response - ${JSON.stringify(data)}`);
       res.status(200).json(data);
     });
-    console.log(`Inside User - ${JSON.stringify(user)}`);
 }
