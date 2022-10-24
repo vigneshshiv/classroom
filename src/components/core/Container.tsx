@@ -7,7 +7,7 @@ import Title from 'components/title/Title';
 
 type props = {
   children: ReactNode;
-  title: string;
+  title: ReactNode;
   customMeta?: any;
 }
 

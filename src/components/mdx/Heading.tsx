@@ -1,8 +1,8 @@
 /**
  * Heading Tags
  */
-import cn from 'classnames';
 import * as React from 'react';
+import cn from 'classnames';
 
 export interface HeadingProps {
   id?: string,

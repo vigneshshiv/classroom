@@ -1,7 +1,6 @@
 import { useSession } from 'next-auth/react';
-//
+// Application
 import Container from 'components/core/Container';
-import Loader from 'components/loader/Loader';
 
 const Home = (): JSX.Element => {
   const { data: session, status } = useSession();
