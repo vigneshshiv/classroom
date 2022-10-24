@@ -12,9 +12,9 @@ const Header = (): JSX.Element => {
   const headerLinks = [
     { title: 'About', slug: '/about' },
     { title: 'Blog', slug: '/blog' },
-    { title: 'Work', slug: '/work' },
     { title: 'Courses', slug: '/courses' },
-    { title: 'Contact', slug: '/contact' }
+    { title: 'Contact', slug: '/contact' },
+    { title: 'Signin', slug: '/signin' }
   ];
   return (
     <>

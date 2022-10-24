@@ -1,18 +1,22 @@
 /**
- * Container Component
+ * Initiate Page with a Container component, that holds Page Title and main content, meta data is optional.
  */
 import { ReactNode } from 'react';
-import TitleAndMetaTags from 'components/layout/header/TitleAndMetaTags';
+import TitleAndMetaTags from 'components/layout/TitleAndMetaTags';
+import Title from 'components/title/Title';
 
 type props = {
   children: ReactNode;
-  customMeta: any;
+  title: string;
+  customMeta?: any;
 }
 
-const Container = ({ children, customMeta }: props) => {
+const Container = ({ children, title, customMeta }: props) => {
   return (
     <>
       <TitleAndMetaTags customMeta={customMeta} />
+      <Title title={title} />
+      {/* Main document section */}
       <main className="container mx-auto px-12 sm:px-0">
         {children}
       </main>

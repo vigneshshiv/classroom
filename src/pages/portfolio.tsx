@@ -2,12 +2,15 @@
  * Portfolio
  */
 import Link from 'next/link';
-import Header from 'components/layout/header/Header';
+import Header from 'components/layout/Header';
+import Footer from 'components/layout/Footer';
 
 
 const Portfolio = (): JSX.Element => {
   return (
-    <Header />
+    <>
+    <h1>Portfolio page</h1>
+    </>
   );
 }
 

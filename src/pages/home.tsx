@@ -1,17 +1,21 @@
-import Page from 'components/core/Page'
-import type { NextPage } from 'next'
-import Head from 'next/head'
+import { useSession } from 'next-auth/react';
+//
+import Container from 'components/core/Container';
+import Loader from 'components/loader/Loader';
 
-const Home: NextPage = () => {
+const Home = (): JSX.Element => {
+  const { data: session, status } = useSession();
+  console.log(`Session status - ${status}`);
   return (
-    <div>
-      <Head>
-        <title>Online Classroom</title>
-      </Head>
-      <Page>
-        {/* <h1 className="p-10 text-red-500">Hey Starting classroom from today!, What about CSS?</h1> */}
-      </Page>
-    </div>
+    <>
+    <h1>Home Page alteration with different props Outside</h1>
+    <Container title='Classroom | Home' customMeta={
+      { pageTitle: 'Vignesh Shiv' }
+    }>
+      <h1>Home Page alteration with different props</h1>
+      <h2>Trying another way</h2>
+    </Container>
+    </>
   );
 }
 
