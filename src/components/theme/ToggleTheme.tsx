@@ -1,7 +1,7 @@
 /**
  * Dark Mode theme
  */
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
 import { DarkTheme } from 'components/icons/DarkTheme';
 import { LiteTheme } from 'components/icons/LiteTheme';
