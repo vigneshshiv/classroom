@@ -7,6 +7,7 @@ import { type Session } from 'next-auth';
 import { PageProps } from 'components/types/types';
 // CSS
 import '../styles/globals.css';
+import { ThemeProvider } from 'next-themes';
 
 // TODO: Layout Group & Animate Presence
 function Classroom({ 
@@ -14,9 +15,11 @@ function Classroom({
   pageProps: {session, ...pageProps} 
 }: AppProps<{session: Session, pageProps: PageProps}>) {
   return (
-    <SessionProvider session={session}>
-      <Component {...pageProps} />
-    </SessionProvider>
+    <ThemeProvider attribute='class'>
+      <SessionProvider session={session}>
+        <Component {...pageProps} />
+      </SessionProvider>
+    </ThemeProvider>
   );
 }
 
