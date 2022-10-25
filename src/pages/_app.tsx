@@ -4,6 +4,7 @@ import type { AppProps } from 'next/app';
 import { SessionProvider } from 'next-auth/react';
 import { type Session } from 'next-auth';
 import { ThemeProvider } from 'next-themes';
+import { AnimatePresence, LayoutGroup } from 'framer-motion';
 // Application
 import Layout from 'components/layout/Layout';
 // CSS
@@ -16,13 +17,17 @@ function Classroom({
 }: AppProps<{session: Session, pageProps: AppProps}>) {
   return (
     <>
-      <ThemeProvider attribute='class'>
-        <SessionProvider session={session}>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </SessionProvider>
-      </ThemeProvider>
+      {/* <LayoutGroup id='crossfade'>
+        <AnimatePresence initial={false}> */}
+          <ThemeProvider attribute='class'>
+            <SessionProvider session={session}>
+              <Layout>
+                <Component {...pageProps} />
+              </Layout>
+            </SessionProvider>
+          </ThemeProvider>
+        {/* </AnimatePresence>
+      </LayoutGroup> */}
     </>
   );
 }

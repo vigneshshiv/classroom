@@ -2,23 +2,6 @@
  * Heading Tags
  */
 import * as React from 'react';
-import cn from 'classnames';
-
-export interface HeadingProps {
-  id?: string,
-  className?: string,
-  ref?: React.RefObject<HTMLDivElement>,
-  isPageAnchor?: boolean,
-  children: React.ReactNode // Title of Heading tags
-}
-
-export const Heading = (props: HeadingProps) => {
-  return (
-    <div id={props.id} ref={props.ref} className={cn('mdx-heading', props.className)}>
-      {props.children}
-    </div>
-  );
-}
 
 export const H1 = (p: JSX.IntrinsicElements['h1']) => ( 
   <h1 className='text-5xl font-bold leading-tight text-primary' {...p} />

@@ -12,13 +12,15 @@ const Layout = ({ children }: {children: ReactNode}): JSX.Element => {
   const _container_ref_ = useRef(null);
   const { data: session, status } = useSession();
   return (
-    <LayoutGroup id='crossfade'>
+    // <LayoutGroup id='crossfade'>
+    <>
       <div data-scroll-container className='w-screen' ref={_container_ref_}>
         <Header />
         {children}
       </div>
       <Footer />
-    </LayoutGroup>
+    </>
+    // </LayoutGroup>
   );
 }
 

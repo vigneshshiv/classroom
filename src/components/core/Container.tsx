@@ -3,19 +3,16 @@
  */
 import { ReactNode } from 'react';
 import TitleAndMetaTags from 'components/layout/TitleAndMetaTags';
-import Title from 'components/title/Title';
 
 type props = {
   children: ReactNode;
-  title: ReactNode;
   customMeta?: any;
 }
 
-const Container = ({ children, title, customMeta }: props) => {
+const Container = ({ children, customMeta }: props) => {
   return (
     <>
       <TitleAndMetaTags customMeta={customMeta} />
-      <Title title={title} />
       {/* Main document section */}
       <main className="container mx-auto px-12 sm:px-0">
         {children}
