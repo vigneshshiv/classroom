@@ -4,7 +4,7 @@
 import type { NextPage } from 'next';
 // Application
 import Container from 'components/core/Container';
-import { H1 } from '../components/mdx/Heading';
+import { H1 } from '../components/common/Heading';
 
 const NotFound: NextPage = () => {
     return (

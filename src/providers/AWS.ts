@@ -11,3 +11,6 @@ const AWS = aws.config.update({
 });
 
 export default AWS;
+
+// TODO:
+// Presigned URL for S3 for uploading it from front-end for faster

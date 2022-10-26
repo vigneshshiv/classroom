@@ -6,8 +6,8 @@ import Image from 'next/image';
 import Container from 'components/core/Container';
 import BlogPostsLayout from 'components/blogposts/BlogPostsLayout';
 import BlogPostCard from 'components/blogposts/BlogPostCard';
-import { H1, H3 } from 'components/mdx/Heading';
-import { P } from 'components/mdx/MDXComponent';
+import { H1, H3 } from 'components/common/Heading';
+import { P } from 'components/common/MDXComponent';
 
 const Blog = ({ isBlogPage = true }: { isBlogPage: boolean }): JSX.Element => {
   return (

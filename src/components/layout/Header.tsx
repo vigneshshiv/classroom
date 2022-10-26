@@ -30,7 +30,7 @@ const Header = (): JSX.Element => {
                 title='sparkle-emoji'
                 className='text-2xl lg:text-4xl font-bold mr-2 hover:animate-ping'
               >
-                ✨
+                💻
               </span>
               <h1 className='text-2xl lg:text-4xl font-bold mr-4 lg:mx-0 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-indigo-500'>
                 CLASSROOM
