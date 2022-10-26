@@ -1,17 +1,17 @@
-import Page from 'components/core/Page'
-import type { NextPage } from 'next'
-import Head from 'next/head'
+import { useSession } from 'next-auth/react';
+// Application
+import Container from 'components/core/Container';
+import Hero from 'components/common/Hero';
+import Blog from './blog';
 
-const Home: NextPage = () => {
+const Home = (): JSX.Element => {
+  const { data: session, status } = useSession();
+  console.log(`Session status - ${status}`);
   return (
-    <div>
-      <Head>
-        <title>Online Classroom</title>
-      </Head>
-      <Page>
-        {/* <h1 className="p-10 text-red-500">Hey Starting classroom from today!, What about CSS?</h1> */}
-      </Page>
-    </div>
+    <Container customMeta={{ pageTitle: 'Vignesh Shivz' }}>
+      <Hero image='/images/shiv-wave.png' height='400' width='400' />
+      <Blog isBlogPage={false} />
+    </Container>
   );
 }
 

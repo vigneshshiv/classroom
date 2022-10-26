@@ -3,19 +3,26 @@ import type { AppProps } from 'next/app';
 // Next Auth
 import { SessionProvider } from 'next-auth/react';
 import { type Session } from 'next-auth';
+import { ThemeProvider } from 'next-themes';
 // Application
-import { PageProps } from 'components/types/types';
+import Layout from 'components/layout/Layout';
 // CSS
 import '../styles/globals.css';
 
 function Classroom({ 
   Component, 
   pageProps: {session, ...pageProps} 
-}: AppProps<{session: Session, pageProps: PageProps}>) {
+}: AppProps<{session: Session, pageProps: AppProps}>) {
   return (
-    <SessionProvider session={session}>
-      <Component {...pageProps} />
-    </SessionProvider>
+    <>
+      <ThemeProvider attribute='class'>
+        <SessionProvider session={session}>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </SessionProvider>
+      </ThemeProvider>
+    </>
   );
 }
 
