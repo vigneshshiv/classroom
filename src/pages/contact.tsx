@@ -30,9 +30,7 @@ const Contact = (): JSX.Element => {
           >
             <span className='italic'>
               Dont'be a {' '}
-              <span style={{ 
-                textDecoration: 'line-through'
-               }}>stranger</span>.
+              <span className='line-through'>stranger</span>.
             </span>
             <div className='my-4'>
               Say <a href='mailto:vichuviky@gmail.com'>Hi</a>{' '}
