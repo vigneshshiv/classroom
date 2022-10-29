@@ -9,8 +9,8 @@ const getRandomInt = (min: number, max: number): number => Math.floor(Math.rando
 
 const Hero = ({ image, height, width }: {
   image: string;
-  height?: number | string;
-  width?: number | string;
+  height?: number;
+  width?: number;
 }): JSX.Element => {
   return (
     <motion.div
@@ -27,7 +27,6 @@ const Hero = ({ image, height, width }: {
       <Image
         src={image}
         alt='hero-image'
-        layout='fixed'
         height={height}
         width={width}
         priority

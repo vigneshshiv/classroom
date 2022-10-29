@@ -20,8 +20,7 @@ const Blog = ({ isBlogPage = true }: { isBlogPage: boolean }): JSX.Element => {
                 <Image 
                   alt='coding-blog'
                   src='/images/coding-bg.jpg'
-                  layout='fill'
-                  objectFit='cover'
+                  fill={true}
                   className='opacity-30'
                 />
               </div>
