@@ -63,7 +63,7 @@ const About = (): JSX.Element => {
         className='w-full h-screen grid place-content-center mb-16'
       >
         <div className='py-8'>
-          <Hero image='/images/shiv-focus-mode.png' height='250' width='250' />
+          <Hero image='/images/shiv-focus-mode.png' height={250} width={250} />
         </div>
         <div className='flex flex-col items-center md:items-start space-y-6 px-8 text-lg'>
           <div className='inline-flex space-x-2 items-center'>

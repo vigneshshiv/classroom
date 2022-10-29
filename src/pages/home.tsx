@@ -9,7 +9,7 @@ const Home = (): JSX.Element => {
   console.log(`Session status - ${status}`);
   return (
     <Container customMeta={{ pageTitle: 'Vignesh Shivz' }}>
-      <Hero image='/images/shiv-wave.png' height='400' width='400' />
+      <Hero image='/images/shiv-wave.png' height={400} width={400} />
       <Blog isBlogPage={false} />
     </Container>
   );

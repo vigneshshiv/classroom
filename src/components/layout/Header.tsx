@@ -24,18 +24,16 @@ const Header = (): JSX.Element => {
           className='top-0 w-screen fixed flex flex-row justify-between items-center tracking-widest
             h-16 md:h-20 px-12 bg-white dark:bg-gray-800 text-black dark:text-white z-50'
         >
-          <Link href='/'>
-            <a className='flex items-center justify-center'>
-              <span
-                title='sparkle-emoji'
-                className='text-2xl lg:text-4xl font-bold mr-2 hover:animate-ping'
-              >
-                💻
-              </span>
-              <h1 className='text-2xl lg:text-4xl font-bold mr-4 lg:mx-0 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-indigo-500'>
-                CLASSROOM
-              </h1>
-            </a>
+          <Link href='/' className='flex items-center justify-center'>
+            <span
+              title='sparkle-emoji'
+              className='text-2xl lg:text-4xl font-bold mr-2 hover:animate-ping'
+            >
+              💻
+            </span>
+            <h1 className='text-2xl lg:text-4xl font-bold mr-4 lg:mx-0 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-indigo-500'>
+              CLASSROOM
+            </h1>
           </Link>
           <LayoutGroup>
             <div className='flex align-center justify-center ml-auto'>

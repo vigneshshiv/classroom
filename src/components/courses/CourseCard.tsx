@@ -41,8 +41,7 @@ const CourseCard = (): JSX.Element => {
                   <Image 
                     alt='course-cover'
                     src={course.cover}
-                    layout='fill'
-                    objectFit='cover'
+                    fill={true}
                     className='rounded-t-lg'
                   />
                 </div>
