@@ -14,23 +14,11 @@ module.exports = {
     './src/styles/**/*.{js,ts,jsx,tsx}'
   ],
   theme: {
-    typography: (theme) => ({}),
     extend: {
       fontFamily: {
         roboto: ['Roboto Slab', ...defaultTheme.fontFamily.serif],
         telex: ['Telex', ...defaultTheme.fontFamily.sans]
-      },
-      typography: (theme) => ({
-        dark: {
-          css: {
-            color: 'white'
-          }
-        }
-      })
+      }
     }
-  },
-  variants: {
-    typography: ['dark'],
-  },
-  plugins: [require('@tailwindcss/typography')],
+  }
 }
