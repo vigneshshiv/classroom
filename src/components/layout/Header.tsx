@@ -9,6 +9,7 @@ import { ToggleTheme } from 'components/theme/ToggleTheme';
 import TitleAndMetaTags from './TitleAndMetaTags';
 
 const Header = (): JSX.Element => {
+  // TODO: sync with constants
   const headerLinks = [
     { title: 'About', slug: '/about' },
     { title: 'Blog', slug: '/blog' },

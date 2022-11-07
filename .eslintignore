@@ -1,3 +1,5 @@
-scripts
-plugins
-next.config.js
+node_modules/
+.next/
+dist/
+prisma/
+public/
