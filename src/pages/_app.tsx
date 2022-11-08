@@ -3,8 +3,8 @@ import type { AppProps } from 'next/app';
 // Next Auth
 import { SessionProvider } from 'next-auth/react';
 import { type Session } from 'next-auth';
-import { ThemeProvider } from 'next-themes';
 // Application
+import ThemeProvider from 'components/theme/ThemeProvider';
 import Layout from 'components/layout/Layout';
 // CSS
 import '../styles/globals.css';
@@ -15,13 +15,12 @@ function Classroom({
 }: AppProps<{session: Session, pageProps: AppProps}>) {
   return (
     <>
-      <ThemeProvider attribute='class'>
-        <SessionProvider session={session}>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </SessionProvider>
-      </ThemeProvider>
+      <ThemeProvider />
+      <SessionProvider session={session}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </SessionProvider>
     </>
   );
 }
