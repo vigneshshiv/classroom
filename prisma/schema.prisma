@@ -47,6 +47,7 @@ model User {
   role          String?
   accounts      Account[]
   sessions      Session[]
+  createdAt     DateTime  @default(now())
 }
 
 model VerificationToken {

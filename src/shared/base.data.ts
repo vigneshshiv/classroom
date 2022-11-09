@@ -2,9 +2,13 @@
  * Base Data
  */
 
-export type Data = {
-  name: string;
-};
+ export const headerLinks = [
+  { title: 'About', slug: '/about' },
+  { title: 'Blog', slug: '/blog' },
+  { title: 'Courses', slug: '/courses' },
+  { title: 'Contact', slug: '/contact' },
+  { title: 'Signin', slug: '/signin' }
+];
 
 /**
  * Message Type
@@ -28,8 +32,6 @@ export const SystemEvents = {
   PAGE_DESTROYED: 'page-destroyed',
   PAGE_NAVIGATION_START: 'page-navigation-start',
   PAGE_NAVIGATION_END: 'page-navigation-end',
-  PAGE_TITLE_INITIALIZED: 'page-title-initialized',
-  PAGE_TITLE_DESTROYED: 'page-title-destroyed',
   // Service
   SERVICE_REQUESTED: 'service-requested',
   SERVICE_COMPLETED: 'service-completed',
@@ -51,29 +53,12 @@ export const DateFormat = {
 };
 
 /**
- * Data Operation
- */
-export const DataOperation = {
-  CREATE: 'C',
-  READ: 'R',
-  UPDATE: 'U',
-  DELETE: 'D',
-  TRASH: 'T'
-};
-
-/**
  * Proxy Ref
  */
 export const ProxyRef = {
+  CONTAINER_REF: '_container_ref_',
   FORM_REF: '_form_ref_',
   HANDLER_REF: '_handler_ref_'
-};
-
-/**
- * Storage Manager
- */
-export const StorageManager = {
-  SESSION_KEY: 'cr-session'
 };
 
 /**

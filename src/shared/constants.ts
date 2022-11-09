@@ -13,8 +13,10 @@ export const ROUTES = {
     SETTINGS: '/settings/',
   }, 
   API: {
+    AUTH_SERVICE: '/api/auth/auth-service',
     SESSION: '/api/auth/session/',
     USERS: '/api/users/',
+    USER_DETAILS: '/api/user/user-details',
     PROFILE: '/api/users/profile/',
     COURSES: '/api/courses/',
     BLOGS: '/api/blogs/'

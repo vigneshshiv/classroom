@@ -1,22 +1,34 @@
 /**
  * Application Header
  */
+'use client';
+
 import * as React from 'react';
 import Link from 'next/link';
+import { useSession } from 'next-auth/react';
 import { LayoutGroup } from 'framer-motion';
 // Application
-import { ToggleTheme } from 'components/theme/ToggleTheme';
 import TitleAndMetaTags from './TitleAndMetaTags';
+import { ToggleTheme } from 'components/theme/ToggleTheme';
+import DropdownProfile from './DropdownProfile';
+import { headerLinks } from 'shared/base.data';
+import { ROUTES } from 'shared/constants';
 
 const Header = (): JSX.Element => {
-  // TODO: sync with constants
-  const headerLinks = [
-    { title: 'About', slug: '/about' },
-    { title: 'Blog', slug: '/blog' },
-    { title: 'Courses', slug: '/courses' },
-    { title: 'Contact', slug: '/contact' },
-    { title: 'Signin', slug: '/signin' }
-  ];
+  const { data: session, status } = useSession();
+  // Fetch User Data
+  const fetchUserData = async () => {
+    const response = await fetch(ROUTES.API.USER_DETAILS, {
+      headers: { 
+        "Content-Type": "application/json"
+      },
+      method: 'POST',
+      body: JSON.stringify({ email: session?.user?.email })
+    });
+    return response.json();
+  };
+  // const { data: userDetails, isLoading } = useQuery([QueryKeys.USER_DETAILS], fetchUserData);
+
   return (
     <>
       <TitleAndMetaTags />
@@ -36,21 +48,27 @@ const Header = (): JSX.Element => {
               CLASSROOM
             </h1>
           </Link>
-          <LayoutGroup>
-            <div className='flex align-center justify-center ml-auto'>
-              {headerLinks.map((link) => (
-                <li 
-                  key={link.title}
-                  className='text-gray-700 dark:text-gray-100 text-sm lg:text-xl font-bold hover:underline underline-offset-4 px-4 py-2'
-                >
-                  <Link href={link.slug}>{link.title}</Link>
-                </li>
-              ))}
-            </div>
-            <div className='ml-4 sm:block'>
-              <ToggleTheme />
-            </div>
-          </LayoutGroup>
+          {Object.is(status, 'authenticated') 
+            ? (
+              <DropdownProfile />
+            )
+            : (
+              <LayoutGroup>
+                <div className='flex align-center justify-center ml-auto'>
+                  {headerLinks.map((link) => (
+                    <li 
+                      key={link.title}
+                      className='text-gray-700 dark:text-gray-100 text-sm lg:text-xl font-bold hover:underline underline-offset-4 px-4 py-2'
+                    >
+                      <Link href={link.slug}>{link.title}</Link>
+                    </li>
+                  ))}
+                </div>
+              </LayoutGroup>
+            )}
+          <div className='ml-4 sm:block'>
+            <ToggleTheme />
+          </div>
         </header>
       </ul>
     </>

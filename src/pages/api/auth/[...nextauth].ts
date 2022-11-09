@@ -7,6 +7,8 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 // Prisma adapter for NextAuth
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import prisma from 'providers/prisma';
+// Application
+import { ROUTES } from 'shared/constants';
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -22,7 +24,7 @@ export const authOptions: NextAuthOptions = {
           email: string;
           password: string;
         };
-        const response = await fetch('/api/authService', {
+        const response = await fetch(ROUTES.API.AUTH_SERVICE, {
           headers: { 'Content-type': 'application/json' },
           method: 'POST',
           body: JSON.stringify({ email })
