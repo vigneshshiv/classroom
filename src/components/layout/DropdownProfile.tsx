@@ -4,7 +4,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
-import { useSession } from 'next-auth/react';
+import { signOut, useSession } from 'next-auth/react';
 import cn from 'classnames';
 // Application
 import RobotoSlabFont from 'components/fonts/RobotoFont';
@@ -23,10 +23,11 @@ const DropdownProfile = (): JSX.Element => {
         <Image 
           src={profilePhoto}
           alt='Profile Image'
-          fill={true}
+          width={50}
+          height={50}
           priority
           onClick={() => setShow(!show)}
-          className='h-7 w-7 rounded-full cursor-pointer'
+          className='h-8 w-8 rounded-full cursor-pointer'
         />
       </div>
       <div 
@@ -49,15 +50,12 @@ const DropdownProfile = (): JSX.Element => {
             <span>Settings</span>
           </Link>
         </div>
-        <div>
-          <Link
-            href='/'
-            onClick={() => {}}
-            className='flex items-center space-x-2 px-4 py-2 border-t dark:border-t-gray-500 text-sm text-gray-700 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-500'
-          >
-            <SignoutIcon size='lg' />
-            <span>Sign Out</span>
-          </Link>
+        <div
+          onClick={() => signOut()}
+          className='flex items-center space-x-2 px-4 py-2 border-t dark:border-t-gray-500 text-sm text-gray-700 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-500 cursor-pointer'
+        >
+          <SignoutIcon size='lg' />
+          <span>Sign Out</span>
         </div>
       </div>
     </div>
