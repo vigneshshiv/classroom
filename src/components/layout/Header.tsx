@@ -9,7 +9,6 @@ import { useSession } from 'next-auth/react';
 import { LayoutGroup } from 'framer-motion';
 // Application
 import TitleAndMetaTags from './TitleAndMetaTags';
-import Loader from 'components/common/Loader';
 import { ToggleTheme } from 'components/theme/ToggleTheme';
 import DropdownProfile from './DropdownProfile';
 import { headerLinks } from 'shared/base.data';
@@ -29,10 +28,6 @@ const Header = (): JSX.Element => {
     return response.json();
   };
   // const { data: userDetails, isLoading } = useQuery([QueryKeys.USER_DETAILS], fetchUserData);
-
-  if (Object.is(status, 'loading')) {
-    return <Loader />;
-  }
 
   return (
     <>
