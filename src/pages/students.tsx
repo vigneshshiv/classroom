@@ -25,6 +25,8 @@ const Students = (): JSX.Element => {
     }
   ];
 
+  // TODO: Sync with Prisma schema
+
   return (
     <div className='relative'>
       <Container>
