@@ -48,7 +48,7 @@ const Header = (): JSX.Element => {
               CLASSROOM
             </h1>
           </Link>
-          {Object.is(status, 'authenticated') 
+          {!Object.is(status, 'authenticated') 
             ? (
               <DropdownProfile />
             )

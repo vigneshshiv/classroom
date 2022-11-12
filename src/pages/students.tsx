@@ -1,8 +1,10 @@
 /**
  * Students
  */
+import { useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useQuery } from '@tanstack/react-query';
+import { Prisma } from '@prisma/client';
 // Application
 import Container from 'components/core/Container';
 import Table from 'components/table/Table';
@@ -10,11 +12,11 @@ import { H3 } from 'components/common/Heading';
 import { Roles } from 'shared/base.data';
 import { ROUTES } from 'shared/constants';
 import QueryKeys from 'shared/query.keys';
-import { EnrolledCourse, Prisma } from '@prisma/client';
 
 const Students = (): JSX.Element => {
 
   const { data: session } = useSession();
+  const [refetch, setRefetch] = useState(true);
 
   if (session?.user?.role == Roles.STUDENT) {
     console.log(`Student Role doesn't have an access to it, ${session?.user?.email}`);
@@ -50,7 +52,12 @@ const Students = (): JSX.Element => {
     return response.json();
   };
   type EnrolledCoursesWithAllTypes = Prisma.PromiseReturnType<typeof enrolledStudents>;
-  const { data: enrolledStudents, isLoading } = useQuery([QueryKeys.STUDENTS_ENROLLED_COURSES], fetchStudentsEnrolledCourses);
+
+  const { data: enrolledStudents, isLoading } = useQuery(
+    [QueryKeys.STUDENTS_ENROLLED_COURSES], fetchStudentsEnrolledCourses, {
+      enabled: refetch,
+      staleTime: Infinity
+    });
 
   console.log(`Students enrolled data ${JSON.stringify(enrolledStudents)}`);
 

@@ -38,24 +38,25 @@ const DropdownProfile = (): JSX.Element => {
         )}
       >
         <div className='p-3 space-y-1'>
-          <div className='text-sm text-gray-700 dark:text-gray-100 capitalize leading-normal'>{session?.user?.name}</div>
-          <div className='text-xs text-gray-500 dark:text-gray-100 truncate leading-5'>{session?.user?.email}</div>
+          <div className='text-sm tracking-wider text-gray-700 dark:text-gray-100 capitalize leading-relaxed'>{session?.user?.name ?? 'Rick Jhonson'}</div>
+          <div className='text-xs font-light tracking-wider text-gray-700 dark:text-gray-100 truncate leading-5'>{session?.user?.email ?? 'rick@classroom.com'}</div>
         </div>
+        
         <div>
           <Link 
             href='/'
-            className='flex item-center space-x-2 px-4 py-2 border-t dark:border-t-gray-500 text-sm text-gray-700 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-500'
+            className='flex item-center space-x-2 px-4 py-2 border-t dark:border-t-gray-500 text-gray-700 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-300'
           >
             <SettingsIcon size='lg' />
-            <span>Settings</span>
+            <span className='text-sm tracking-wider'>Settings</span>
           </Link>
         </div>
         <div
           onClick={() => signOut()}
-          className='flex items-center space-x-2 px-4 py-2 border-t dark:border-t-gray-500 text-sm text-gray-700 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-500 cursor-pointer'
+          className='flex items-center space-x-2 px-4 py-2 border-t dark:border-t-gray-500 text-gray-700 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-300 cursor-pointer'
         >
           <SignoutIcon size='lg' />
-          <span>Sign Out</span>
+          <span className='text-sm tracking-wider'>Sign Out</span>
         </div>
       </div>
     </div>
