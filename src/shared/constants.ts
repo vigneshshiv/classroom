@@ -19,7 +19,8 @@ export const ROUTES = {
     USER_DETAILS: '/api/user/user-details',
     PROFILE: '/api/users/profile/',
     COURSES: '/api/courses/',
-    BLOGS: '/api/blogs/'
+    BLOGS: '/api/blogs/',
+    STUDENTS_ENROLLED_COURSES: '/api/student/enrolled-course'
   }, 
   STATIC: {
     // Public folder and static assets

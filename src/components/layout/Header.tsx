@@ -20,7 +20,7 @@ const Header = (): JSX.Element => {
   const fetchUserData = async () => {
     const response = await fetch(ROUTES.API.USER_DETAILS, {
       headers: { 
-        "Content-Type": "application/json"
+        'Content-Type': 'application/json'
       },
       method: 'POST',
       body: JSON.stringify({ email: session?.user?.email })

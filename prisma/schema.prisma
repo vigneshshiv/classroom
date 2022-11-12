@@ -11,7 +11,7 @@ generator client {
 
 // Necessary for Next Auth
 model Account {
-  id                 String  @id @default(cuid())
+  id                 String   @id @default(cuid())
   userId             String
   type               String
   provider           String
@@ -38,16 +38,18 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(cuid())
-  name          String?
-  displayName   String?
-  email         String?   @unique
-  emailVerified DateTime?
-  image         String?
-  role          String?
-  accounts      Account[]
-  sessions      Session[]
-  createdAt     DateTime  @default(now())
+  id              String    @id @default(cuid())
+  name            String?
+  displayName     String?
+  email           String?   @unique
+  emailVerified   DateTime?
+  image           String?
+  role            String?
+  accounts        Account[]
+  sessions        Session[]
+  courses         Course[]
+  enrolledCourses EnrolledCourse[]
+  createdAt       DateTime  @default(now())
 }
 
 model VerificationToken {
@@ -56,4 +58,34 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+// TODO: CourseDetail and with AWS S3 Links
+model Course {
+  id            String    @id @default(cuid())
+  number        Int       @default(autoincrement())
+  name          String    @unique
+  category      String
+  description   String
+  duration      String
+  version       String?
+  author        String
+  createdAt     DateTime  @default(now())
+  modifiedAt    DateTime?
+  user          User      @relation(fields: [author], references: [id], onDelete: Cascade)
+  enrolledCourse EnrolledCourse[]
+}
+
+// TODO: WatchTime, Finished Chapters, Assignment submission, feedbacks
+model EnrolledCourse {
+  id            String      @id @default(cuid())
+  userId        String
+  courseId      String
+  enrolledDate  DateTime
+  expireDate    DateTime
+  finished      Boolean     @default(false)
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime?
+  user          User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  course        Course      @relation(fields: [courseId], references: [id], onDelete: Cascade)
 }
