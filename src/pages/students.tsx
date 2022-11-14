@@ -13,14 +13,16 @@ import { Roles } from 'shared/base.data';
 import { ROUTES } from 'shared/constants';
 import QueryKeys from 'shared/query.keys';
 
+// Enrolled course type
+type EnrolledCoursesWithAllTypes = Prisma.PromiseReturnType<any>;
+
 const Students = (): JSX.Element => {
 
   const { data: session } = useSession();
-  const [refetch, setRefetch] = useState(true);
+  const [refetch, setRefetch] = useState(false);
 
   if (session?.user?.role == Roles.STUDENT) {
     console.log(`Student Role doesn't have an access to it, ${session?.user?.email}`);
-    // return <h1>No Access</h1>;
   }
 
   const studentsData = [
@@ -51,13 +53,13 @@ const Students = (): JSX.Element => {
     });
     return response.json();
   };
-  type EnrolledCoursesWithAllTypes = Prisma.PromiseReturnType<typeof enrolledStudents>;
-
+  
   const { data: enrolledStudents, isLoading } = useQuery(
     [QueryKeys.STUDENTS_ENROLLED_COURSES], fetchStudentsEnrolledCourses, {
       enabled: refetch,
       staleTime: Infinity
-    });
+    }
+  );
 
   console.log(`Students enrolled data ${JSON.stringify(enrolledStudents)}`);
 
@@ -65,8 +67,8 @@ const Students = (): JSX.Element => {
     <div className='relative'>
       <Container>
         <div className='flex flex-col gap-4 my-12 ml-4 py-8'>
-          <div className='flex gap-8 items-center'>
-            <H3 className='mt-8 text-2xl text-gray-800 dark:text-gray-50'>Students Data</H3>
+          <div className='flex gap-8 items-center mt-8'>
+            <H3>Students Data</H3>
           </div>
           <div className='overflow-x-auto'>
             <Table 
