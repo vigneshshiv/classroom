@@ -2,12 +2,18 @@
  * Blog Gallery
  */
 import Image from 'next/image';
+import cn from 'classnames';
 // Application
 import Container from 'components/core/Container';
 import BlogPostsLayout from 'components/blogposts/BlogPostsLayout';
 import BlogPostCard from 'components/blogposts/BlogPostCard';
 import { H1, H3 } from 'components/common/Heading';
 import { P } from 'components/common/MDXComponent';
+import RobotoSlabFont from 'components/fonts/RobotoFont';
+import TelexFont from 'components/fonts/TelexFont';
+
+// #45cdb9 #7fcfc5
+// #ff416c #ff4b2b
 
 const Blog = ({ isBlogPage = true }: { isBlogPage: boolean }): JSX.Element => {
   return (
@@ -27,10 +33,10 @@ const Blog = ({ isBlogPage = true }: { isBlogPage: boolean }): JSX.Element => {
             </div>  
           )}
           <div className='mb-8'>
-            <H1 className='section-header font-roboto mb-4 text-gray-800 dark:text-gray-50'>
+            <H1 className={cn(RobotoSlabFont.className, 'section-header mb-4 text-gray-800 dark:text-gray-50')}>
               Coding Courses
             </H1>
-            <H3 className='font-telex mb-4 text-gray-700 dark:text-gray-50'>
+            <H3 className={cn(TelexFont.className, 'mb-4 text-gray-700 dark:text-gray-50')}>
               Here are some of our coding courses.
             </H3>
             <span className='font-lato mb-4 text-gray-700 dark:text-gray-50'>
@@ -90,10 +96,10 @@ const Blog = ({ isBlogPage = true }: { isBlogPage: boolean }): JSX.Element => {
               </P>
             </BlogPostCard>
           </BlogPostsLayout>
-          <H1 className='section-header font-roboto text-gray-800 dark:text-gray-50 mt-8'>
+          <H1 className={cn(RobotoSlabFont.className, 'section-header text-gray-800 dark:text-gray-50 mt-8')}>
             Advanced Courses
           </H1>
-          <H3 className='font-telex mb-8 text-gray-700 dark:text-gray-50'>
+          <H3 className={cn(TelexFont.className, 'mb-8 text-gray-700 dark:text-gray-50')}>
             Here are some of our Advanced Courses.
           </H3>
           <div className='mb-4'>

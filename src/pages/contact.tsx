@@ -1,12 +1,16 @@
 /**
  * Contact
  */
+import cn from 'classnames';
+// Application
+import RobotoSlabFont from 'components/fonts/RobotoFont';
+import TelexFont from 'components/fonts/TelexFont';
 
 const Contact = (): JSX.Element => {
   return (
     <div className='relative'>
       <div className='flex flex-col items-center justify-center h-screen'>
-        <div className='font-roboto uppercase text-7xl sm:text-9xl font-bold text-center'>
+        <div className={cn(RobotoSlabFont.className, 'uppercase text-7xl sm:text-9xl font-bold text-center')}>
           <span className='text-stroke'>Lets</span>
           <span className='text-indigo-400 dark:text-green-400'>Talk</span>
         </div>
@@ -16,7 +20,7 @@ const Contact = (): JSX.Element => {
         >
           <div className='relative text-3xl lg:text-4xl text-gray tracking-wide my-8'>
             <a
-              className='relative font-roboto w-full rounded-lg no-underline bg-linear-gradient(to right, #f6d365 0%, #fda085 100%)'
+              className={cn('relative w-full rounded-lg no-underline bg-linear-gradient(to right, #f6d365 0%, #fda085 100%)', RobotoSlabFont.className)}
               href='mailto:vichuviky@gmail.com'
               target='_blank'
               rel='noopener noreferrer'
@@ -37,7 +41,7 @@ const Contact = (): JSX.Element => {
               <span className='text-2xl'>👋🏻</span> or follow me on:{' '}
             </div>
             <a
-              className='font-telex font-bold hover:underline'
+              className={cn(TelexFont.className, 'font-bold hover:underline')}
               href='https://www.instagram.com/vigneshshiv'
               target='_blank'
               rel='noopener noreferrer'
@@ -46,7 +50,7 @@ const Contact = (): JSX.Element => {
             </a>{' '}
             📸 ,{' '}
             <a
-              className='font-telex font-bold hover:underline'
+              className={cn(TelexFont.className, 'font-bold hover:underline')}
               href='https://www.github.com/vigneshshiv'
               target='_blank'
               rel='noopener noreferrer'
@@ -55,7 +59,7 @@ const Contact = (): JSX.Element => {
             </a>{' '}
             💻 or{' '}
             <a
-              className='font-telex font-bold hover:underline'
+              className={cn(TelexFont.className, 'font-bold hover:underline')}
               href='https://www.twitter.com/vikyshiv'
               target='_blank'
               rel='noopener noreferrer'

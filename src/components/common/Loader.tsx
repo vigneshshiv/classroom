@@ -2,7 +2,10 @@
  * Loader
  */
 import * as React from 'react';
+import cn from 'classnames';
 import { motion } from 'framer-motion';
+// Application
+import TelexFont from 'components/fonts/TelexFont';
 
 const Loader = (): JSX.Element => {
   return (
@@ -27,7 +30,7 @@ const Loader = (): JSX.Element => {
           />
         </motion.svg>
       </motion.div>
-      <div className='my-5 font-telex font-bold text-2xl text-gray-300 dark:text-gray-600 tracking-widset'>
+      <div className={cn('my-5', TelexFont.className, 'font-bold text-2xl text-gray-300 dark:text-gray-600 tracking-widset')}>
         Loading cool stuff...
       </div>
       <span className='text-2xl animate-ping'>👾</span>

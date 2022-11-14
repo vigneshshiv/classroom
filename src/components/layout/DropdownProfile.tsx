@@ -7,13 +7,14 @@ import React, { useState } from 'react';
 import { signOut, useSession } from 'next-auth/react';
 import cn from 'classnames';
 // Application
-import RobotoSlabFont from 'components/fonts/RobotoFont';
 import { SettingsIcon } from 'components/icons/SettingsIcon';
 import { SignoutIcon } from 'components/icons/SignoutIcon';
 import { ChevronUpIcon } from 'components/icons/ChevronUpIcon';
 import { NotesIcon } from 'components/icons/NotesIcon';
 import { CalendarIcon } from 'components/icons/CalendarIcon';
 import { CreditCardIcon } from 'components/icons/CreditCardIcon';
+import RobotoSlabFont from 'components/fonts/RobotoFont';
+import TelexFont from 'components/fonts/TelexFont';
 
 const DropdownProfile = (): JSX.Element => {
   const { data: session, status } = useSession();
@@ -31,7 +32,7 @@ const DropdownProfile = (): JSX.Element => {
           height={50}
           priority
           onClick={() => setShow(!show)}
-          className='h-8 w-8 rounded-full cursor-pointer'
+          className='h-7 w-7 rounded-full cursor-pointer'
         />
       </div>
       <div 
@@ -43,7 +44,7 @@ const DropdownProfile = (): JSX.Element => {
         {/* <ChevronUpIcon size='lg' /> */}
         <div className='p-3 space-y-1 border-b dark:border-b-gray-500'>
           <div className='text-sm tracking-wider text-gray-700 dark:text-gray-100 capitalize'>{session?.user?.name ?? 'Rick Jhonson'}</div>
-          <div className='text-xs font-normal tracking-widest text-gray-700 dark:text-gray-100 truncate'>{session?.user?.email ?? 'rick@classroom.com'}</div>
+          <div className={cn(TelexFont.className, 'text-xs tracking-wider text-gray-700 dark:text-gray-100 truncate')}>{session?.user?.email ?? 'rick@classroom.com'}</div>
         </div>
         <div>
           <Link 
@@ -51,7 +52,7 @@ const DropdownProfile = (): JSX.Element => {
             className='flex item-center space-x-2.5 px-3 py-2 text-gray-700 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-300'
           >
             <SettingsIcon size='lg' />
-            <span className='text-sm tracking-wider'>Settings</span>
+            <span className={cn(TelexFont.className, 'text-sm tracking-wider')}>Settings</span>
           </Link>
         </div>
         <div>
@@ -60,7 +61,7 @@ const DropdownProfile = (): JSX.Element => {
             className='flex item-center space-x-2.5 px-3 py-2 text-gray-700 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-300'
           >
             <NotesIcon size='lg' />
-            <span className='text-sm tracking-wider'>Notes</span>
+            <span className={cn(TelexFont.className, 'text-sm tracking-wider')}>Notes</span>
           </Link>
         </div>
         <div>
@@ -69,7 +70,7 @@ const DropdownProfile = (): JSX.Element => {
             className='flex item-center space-x-2.5 px-3 py-2 text-gray-700 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-300'
           >
             <CalendarIcon size='lg' />
-            <span className='text-sm tracking-wider'>Calendar</span>
+            <span className={cn(TelexFont.className, 'text-sm tracking-wider')}>Calendar</span>
           </Link>
         </div>
         <div>
@@ -78,7 +79,7 @@ const DropdownProfile = (): JSX.Element => {
             className='flex item-center space-x-2.5 px-3 py-2 text-gray-700 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-300'
           >
             <CreditCardIcon size='lg' />
-            <span className='text-sm tracking-wider'>Subscription</span>
+            <span className={cn(TelexFont.className, 'text-sm tracking-wider')}>Subscription</span>
           </Link>
         </div>
         <div
@@ -86,7 +87,7 @@ const DropdownProfile = (): JSX.Element => {
           className='flex items-center space-x-2.5 px-3 py-2 border-t dark:border-t-gray-500 text-gray-700 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-300 cursor-pointer'
         >
           <SignoutIcon size='lg' />
-          <span className='text-sm tracking-wider'>Sign Out</span>
+          <span className={cn(TelexFont.className, 'text-sm tracking-wider')}>Sign Out</span>
         </div>
       </div>
     </div>

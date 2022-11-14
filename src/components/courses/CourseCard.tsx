@@ -3,10 +3,12 @@
  */
 import { Fragment } from 'react';
 import Image from 'next/image';
+import cn from 'classnames';
 import { motion } from 'framer-motion';
 // Application
 import Container from 'components/core/Container';
 import { H2 } from 'components/common/Heading';
+import RobotoSlabFont from 'components/fonts/RobotoFont';
 
 const CourseCard = (): JSX.Element => {
   // Front-end Course
@@ -22,7 +24,7 @@ const CourseCard = (): JSX.Element => {
   };
   return (
     <Container>
-      <H2 className='font-roboto text-2xl text-gray-800 dark:text-gray-50 mt-24 mb-10'>
+      <H2 className={cn(RobotoSlabFont.className, 'text-2xl text-gray-800 dark:text-gray-50 mt-24 mb-10')}>
         Design Courses 
       </H2>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
@@ -61,7 +63,8 @@ const CourseCard = (): JSX.Element => {
                     return (
                       <span 
                         key={tag}
-                        className='outline outline-2 outline-offset-1 outline-indigo-300 dark:outline-green-300 truncate text-xs font-roboto font-light mb-2 mr-2 p-2 rounded max-h-8'
+                        className={cn('outline outline-2 outline-offset-1 outline-indigo-300 dark:outline-green-300 truncate',
+                        RobotoSlabFont.className, 'text-xs font-light mb-2 mr-2 p-2 rounded max-h-8')}
                       >
                         {tag}
                       </span>
