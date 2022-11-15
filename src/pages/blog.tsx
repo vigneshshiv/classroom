@@ -36,7 +36,7 @@ const Blog = ({ isBlogPage = true }: { isBlogPage: boolean }): JSX.Element => {
             <H1 className={cn(RobotoSlabFont.className, 'mb-4 section-header text-gray-700 dark:text-gray-200')}>
               Coding Courses
             </H1>
-            <H3 className={cn(TelexFont.className, 'mb-4 text-gray-700 dark:text-gray-50')}>
+            <H3 className={cn(TelexFont.className, 'mb-4 text-gray-700 dark:text-gray-200')}>
               Here are some of our coding courses.
             </H3>
             <span className='font-lato mb-4 text-gray-700 dark:text-gray-50'>
@@ -96,7 +96,7 @@ const Blog = ({ isBlogPage = true }: { isBlogPage: boolean }): JSX.Element => {
               </P>
             </BlogPostCard>
           </BlogPostsLayout>
-          <H1 className={cn(RobotoSlabFont.className, 'mt-8 section-header text-gray-800 dark:text-gray-200')}>
+          <H1 className={cn(RobotoSlabFont.className, 'mt-8 section-header text-gray-700 dark:text-gray-200')}>
             Advanced Courses
           </H1>
           <H3 className={cn(TelexFont.className, 'mb-8 text-gray-700 dark:text-gray-200')}>

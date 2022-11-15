@@ -48,7 +48,7 @@ const SignIn = (props: any): JSX.Element => {
         <div className='flex flex-1 flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24'>
           <div className='mx-auto w-full max-w-sm lg:w-96'>
             <div>
-              <h2 className='mt-6 text-start text-3xl font-bold tracking-tight text-secondary'>Welcome Back!</h2>
+              <h2 className='mt-6 text-start text-3xl font-bold tracking-tight text-gray-700 dark:text-gray-200'>Welcome Back!</h2>
             </div>
             {/* Signin form */}
             <form
@@ -56,7 +56,7 @@ const SignIn = (props: any): JSX.Element => {
               onSubmit={handleSignIn}
             >
               <div className='flex w-full flex-col space-y-2'>
-                <label htmlFor='email' className='text-base text-gray-600'>
+                <label htmlFor='email' className='text-base text-gray-600 dark:text-gray-200'>
                   Email Address
                 </label>
                 <input 
@@ -64,13 +64,13 @@ const SignIn = (props: any): JSX.Element => {
                   id='email'
                   autoComplete='email'
                   required
-                  className='relative block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm'
+                  className='relative block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm dark:bg-gray-200'
                   value={email}
                   onChange={e => setEmail(e.target.value)}
                 />
               </div>
               <div className='flex w-full flex-col space-y-2'>
-                <label htmlFor='password' className='text-base text-gray-600'>
+                <label htmlFor='password' className='text-base text-gray-600 dark:text-gray-200'>
                   Password
                 </label>
                 <div className='flex'>
@@ -79,7 +79,7 @@ const SignIn = (props: any): JSX.Element => {
                     id='password'
                     autoComplete='current-password'
                     required
-                    className='relative block w-full appearance-none rounded-l-md border border-r-0 border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 focus:border-r-[1px] sm:text-sm'
+                    className='relative block w-full appearance-none rounded-l-md border border-r-0 border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 focus:border-r-[1px] sm:text-sm dark:bg-gray-200'
                     value={password}
                     onChange={e => setPassword(e.target.value)}
                   />
@@ -113,12 +113,12 @@ const SignIn = (props: any): JSX.Element => {
             </div>
             <div className='flex justify-center items-center space-x-2'>
               <div className='h-[0.7px] w-[30%] bg-gray-400' />
-                <span className='text-base text-gray-700'>or</span>
+                <span className='text-base text-gray-700 dark:text-gray-200'>or</span>
               <div className='h-[0.7px] w-[30%] bg-gray-400' />
             </div>
             <button 
               onClick={() => signIn(props.providers['google']?.id)}
-              className='flex justify-center items-center w-[60%] mt-2 mx-auto p-2 space-x-4 rounded-md border hover:bg-primary-dark focus:outline-none'
+              className='flex justify-center items-center w-[60%] mt-2 mx-auto p-2 space-x-4 rounded-md border hover:bg-gray-100 dark:hover:bg-gray-600 focus:outline-none'
             >
               <Image
                 src='/icons/google.svg'
@@ -126,7 +126,7 @@ const SignIn = (props: any): JSX.Element => {
                 width={20}
                 height={20}
               />
-              <span className='text-base text-secondary'>Continue with Google</span>
+              <span className='text-base text-gray-700 dark:text-gray-200'>Continue with Google</span>
             </button>
           </div>
         </div>
