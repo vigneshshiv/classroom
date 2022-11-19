@@ -39,6 +39,13 @@ const Students = (): JSX.Element => {
       enrolledCourse: 'DevOps Architect',
       finishedCourse: 'AWS Printical Architect',
       stars: '****'
+    },
+    {
+      name: 'Mac',
+      email: 'mac@gmail.com',
+      enrolledCourse: 'Infra Architect',
+      finishedCourse: 'Apple device Architect',
+      stars: '****'
     }
   ];
 
@@ -67,7 +74,7 @@ const Students = (): JSX.Element => {
     <div className='relative'>
       <Container>
         <div className='flex flex-col gap-4 my-12 ml-4 py-8'>
-          <div className='flex gap-8 items-center mt-8'>
+          <div className='flex gap-6 items-center mt-8'>
             <H3>Students Data</H3>
           </div>
           <div className='overflow-x-auto'>

@@ -6,7 +6,7 @@ import React, { ReactNode } from 'react';
 const Table = ({ headers, rows }: { headers: string[], rows: ReactNode[][] }): JSX.Element => {
   return (
     <table className='table-fixed min-w-full divide-y divide-gray-200 dark:divide-gray-400'>
-      <thead className='bg-gray-100 dark:bg-gray-700'>
+      <thead className='bg-gray-100 dark:bg-gray-700 border-b-[3px] border-b-[#e3e8ed] dark:border-b-gray-400'>
         <tr>
           {headers.map((header) => (
             <th 
