@@ -12,6 +12,7 @@ import { H3 } from 'components/common/Heading';
 import { Roles } from 'shared/base.data';
 import { ROUTES } from 'shared/constants';
 import QueryKeys from 'shared/query.keys';
+import { formatDateTime } from 'utils/AppUtils';
 
 // Enrolled course type
 type EnrolledCoursesWithAllTypes = Prisma.PromiseReturnType<any>;
@@ -29,21 +30,27 @@ const Students = (): JSX.Element => {
     {
       name: 'Vignesh',
       email: 'vichuviky@gmail.com',
+      registeredOn: '2022-11-13T23:34:51.000Z',
       enrolledCourse: 'Front-end development',
+      enrolledDate: '2022-11-14T09:10:00.000Z',
       finishedCourse: 'DevOps and Cloud',
       stars: '***'
     },
     {
       name: 'Shiv',
       email: 'shiv@gmail.com',
+      registeredOn: '2022-11-15T10:05:02.000Z',
       enrolledCourse: 'DevOps Architect',
+      enrolledDate: '2022-11-15T10:20:00.000Z',
       finishedCourse: 'AWS Printical Architect',
       stars: '****'
     },
     {
       name: 'Mac',
       email: 'mac@gmail.com',
+      registeredOn: '2022-11-18T16:50:37.000Z',
       enrolledCourse: 'Infra Architect',
+      enrolledDate: '2022-11-18T17:05:00.000Z',
       finishedCourse: 'Apple device Architect',
       stars: '****'
     }
@@ -82,23 +89,44 @@ const Students = (): JSX.Element => {
               headers={[
                 'Student Name', 
                 'Email', 
+                'Registered On',
                 'Course Enrolled', 
                 'Finished Courses', 
                 'Stars'
               ]}
               rows={enrolledStudents?.length ? (
-                enrolledStudents.map((student: EnrolledCoursesWithAllTypes) => [
+                enrolledStudents.map((student: EnrolledCoursesWithAllTypes, idx: number) => [
                   student.user.name,
                   student.user.email,
-                  student.course.name,
+                  formatDateTime(student.user.registeredOn),
+                  // student.course.name,
+                  (
+                    <div 
+                      key={idx}
+                      className='flex flex-col'
+                    >
+                      <span>{student.course.name}</span>
+                      <span className='tracking-wider'>{formatDateTime(student.course.enrolledDate)}</span>
+                    </div>
+                  ),
                   'None',
                   'No Stars'
                 ])
               ) : (
-                studentsData.map((student) => [
+                studentsData.map((student, idx) => [
                   student.name,
                   student.email,
-                  student.enrolledCourse,
+                  formatDateTime(student.registeredOn),
+                  // student.enrolledCourse,
+                  (
+                    <div 
+                      key={idx}
+                      className='flex flex-col'
+                    >
+                      <span>{student.enrolledCourse}</span>
+                      <span className='tracking-normal'>{formatDateTime(student.enrolledDate)}</span>
+                    </div>
+                  ),
                   student.finishedCourse,
                   student.stars
                 ])

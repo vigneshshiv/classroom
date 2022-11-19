@@ -114,3 +114,21 @@ export const isDifferent = (value1: any, value2: any, caseSensitive?: boolean): 
 export const isStrictlyDifferent = (value1: string, value2: string): boolean => {
   return !Object.is(JSON.stringify(value1), JSON.stringify(value2));
 };
+
+// Format Date Time
+export const formatDateTime = (dateTime: string): string => {
+  const localDateTime = new Date(dateTime);
+  // Time
+  let hour = localDateTime.getHours();
+  const ampm = hour >= 12 ? 'PM' : 'AM';
+  hour %= 12;
+  const minute = localDateTime.getMinutes();
+  const time = `${hour}:${('0' + minute).slice(-2)} ${ampm}`;
+  // Date
+  const day = localDateTime.getDate();
+  const month = new Intl.DateTimeFormat('en', { month: 'short' }).format(localDateTime);
+  const year = localDateTime.getFullYear();
+  const date = `${day} ${month} ${year}`;
+  //
+  return `${date}, ${time}`;
+}
